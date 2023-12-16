@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
+
 const DoctorList = ({doctors , onDelete , onEdit}) => {
     const [editableData, setEditableData] = useState(null);
     const handleEditClick = (doctor) => {
@@ -37,7 +38,7 @@ const DoctorList = ({doctors , onDelete , onEdit}) => {
                     <th>Actions</th>
                     </tr>
                 </thead>
-            </table>
+         
             <tbody>
                 {doctors.map((doctor) => (
                     <tr key={doctor.id}>
@@ -87,6 +88,7 @@ const DoctorList = ({doctors , onDelete , onEdit}) => {
                         </tr>
                 ))}
             </tbody>
+            </table>
         </div>
     );
 };

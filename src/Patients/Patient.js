@@ -9,7 +9,7 @@ function Patient() {
 
   const handleAddPatient = (newPatient) => {
     // Send a POST request to your JSON server to add a new Patient
-    axios.post(' http://localhost:5000/patients', newPatient)
+    axios.post(' http://65.0.21.101:5000/patients', newPatient)
       .then((response) => {
         // Update the React state with the newly created Patient
         setPatients([...Patients, response.data]);
@@ -24,7 +24,7 @@ function Patient() {
   };
   
   useEffect(() => {
-    axios.get('http://localhost:5000/patients')
+    axios.get('http://65.0.21.101:5000/patients')
   .then((response) => {
     setPatients(response.data);
   })
@@ -36,7 +36,7 @@ function Patient() {
 
   const handleDeletePatient = (PatientId) => {
     // Send a DELETE request to your JSON server to delete the Patient data
-    axios.delete(`http://localhost:5000/Patients/${PatientId}`)
+    axios.delete(`http://65.0.21.101:5000/patients/${PatientId}`)
       .then(() => {
         // Remove the deleted Patient from the React state
         const updatedPatients = Patients.filter((Patient) => Patient.id !== PatientId);
@@ -52,7 +52,7 @@ function Patient() {
   
   const handleEditPatient = (editedPatient) => {
     // Send a PUT request to your JSON server to update the Patient data
-    axios.put(` http://localhost:5000/Patients/${editedPatient.id}`, editedPatient)
+    axios.put(` http://65.0.21.101:5000/patients/${editedPatient.id}`, editedPatient)
       .then(() => {
         // Update the React state with the edited Patient data
         const updatedPatients = Patients.map((Patient) =>

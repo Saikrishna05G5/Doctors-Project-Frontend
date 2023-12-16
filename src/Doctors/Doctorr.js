@@ -3,11 +3,12 @@ import axios from 'axios'; //import axios
 import DoctorForm from "./DoctorForm";
 import DoctorList from "./DoctorList";
 
+
 function Doctorr() {
     const [doctors,setDoctors] =useState([]);
     const handleAddDoctor =(newDoctor) => {
         //send a post request to your JSON Server to add a new doctor
-        axios.post('http://localhost:5000/doctors', newDoctor)
+        axios.post('http://65.0.21.101:5000/doctors', newDoctor)
         .then((response) => {
             //update the React State with the newly created doctor
             setDoctors([...doctors, response.data]);
@@ -20,7 +21,7 @@ function Doctorr() {
         });
     };
     useEffect(() => {
-        axios.get('http://localhost:5000/Doctorr')
+        axios.get('http://65.0.21.101:5000/doctors')
         .then((response) => {
             setDoctors(response.data);
         })
@@ -31,7 +32,7 @@ function Doctorr() {
 
     const handleDeleteDoctor =(doctorID) => {
         //send a delete request to your JSON server to delere the doctor data
-        axios.delete(`http://localhost:5000/doctors/${doctorID}`)
+        axios.delete(`http://65.0.21.101:5000/doctors/${doctorID}`)
         .then(() => {
             //Remove the deleted doctor from the react state
             const updatedDoctors =doctors.filter((doctor) => doctor.id !== doctorID);
@@ -47,7 +48,7 @@ function Doctorr() {
 
     const handleEditDoctor =(editedDoctor) => {
         //send a PUT request to your JSON Server to update the doctor data
-        axios.put(`http://localhost:5000/doctors/${editedDoctor.id}`,editedDoctor)
+        axios.put(`http://65.0.21.101:5000/doctors/${editedDoctor.id}`,editedDoctor)
         .then(() => {
             //update the React state with the edited doctor data
             const updatedDoctors =doctors.map((doctor) => doctor.id === editedDoctor.id ? editedDoctor : doctor);

@@ -118,8 +118,9 @@ table {
 th, td {
   border: 1px solid #dddddd;
   text-align: center;
-  padding: 8px;
+  padding: 16px;
 }
+
 th {
   background-color: #f2f2f2;
 }

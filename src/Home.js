@@ -10,14 +10,14 @@ function Home() {
     const [doctorNotFOund,setDoctorNotFound]=useState(false);
 
 useEffect(()=>{
-    axios.get('http://localhost:5000/Doctorr').then((response)=>{
+    axios.get('http://65.0.21.101:5000/doctors').then((response)=>{
         setDoctors(response.data);
     })
     .catch((error) => {
         console.error('Error fetching Doctor Data :',error);
     });
 
-    axios.get('http://localhost:5000/patients').then((response)=>{
+    axios.get('http://65.0.21.101:5000/patients').then((response)=>{
         setFilteredPatients(response.data);
     })
     .catch((error) => {
